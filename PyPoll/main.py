@@ -29,21 +29,12 @@ with open(file,'r') as election:
         County.append(i[1])
         Candidate.append(i[2])
 
-##############################################################
-#Removes the header rows for the ID[] County[] and Candidate[]
+#############################################################################################################
+#After header has been successfully stored this removes the header rows for the ID[] County[] and Candidate[]
 ID.pop(0)
 County.pop(0)
 Candidate.pop(0)
 
-####################################################################################
-#This worked too!!!!!!!! (Makes a dictionary that counts votes for each candidates)#
-####################################################################################
-# Vote_Counter = {}
-# for i in Candidate:
-#     if i in Vote_Counter:
-#         Vote_Counter[i] += 1
-#     else:
-#         Vote_Counter[i] = 1
 #################################################
 #Makes a dictionary counting votes for candidates
 Vote_Counter = Counter(Candidate)
@@ -99,8 +90,8 @@ Election_Analysis()
 #Makes a list to iterate through for the out_file
 out_print = [Data_Header,Dashes,Ttl_Votes,Dashes,C1,C2,C3,Dashes,Win,Dashes]
 
-##############################################################################
-#Declares a path and makes a file to output results to and write results to it
+###############################################################################
+#Declares a path and makes a file to output results to and writes results to it
 out_file = os.path.join("analysis/analysis.csv")
 with open(out_file, "w") as datafile:
     writer = csv.writer(datafile)
